@@ -179,6 +179,9 @@ function spawnObstacle() {
 
     let pos = board.offsetWidth;
     const player = document.getElementById('player'); 
+    // layar < 900px (HP)
+    let baseSpeed = (window.innerWidth < 900) ? 3.5 : 6;
+
     let move = setInterval(() => {
         if (!gameActive) { 
             clearInterval(move); 
@@ -186,15 +189,15 @@ function spawnObstacle() {
             return; 
         }
         
-        pos -= (6 + (score/200)); 
+        pos -= (baseSpeed + (score/400)); 
         obs.style.left = pos + 'px';
         
         const pRect = player.getBoundingClientRect();
         const oRect = obs.getBoundingClientRect();
 
-        if (pRect.right - 15 > oRect.left + 15 && 
-            pRect.left + 15 < oRect.right - 15 && 
-            pRect.bottom - 5 > oRect.top + 5) {
+        if (pRect.right - 20 > oRect.left + 15 && 
+            pRect.left + 20 < oRect.right - 15 && 
+            pRect.bottom - 10 > oRect.top + 10) {
             
             gameOver("yahh tuyOOul kamu hangus kena api! MBGMBGMBG"); 
             clearInterval(move);
@@ -205,7 +208,8 @@ function spawnObstacle() {
             score += 25;
             playMBGSound();
             document.getElementById('score').innerText = "Skor: " + score;
-                        if(score >= 1000 && !isDiscountApplied) {
+            
+            if(score >= 1000 && !isDiscountApplied) {
                 showWin(); 
             }
             
@@ -213,7 +217,9 @@ function spawnObstacle() {
             obs.remove();
         }
     }, 16);
-    gameLoop = setTimeout(spawnObstacle, Math.max(700, 1500 - (score/2)));
+
+    let spawnDelay = (window.innerWidth < 900) ? 2000 : 1500;
+    gameLoop = setTimeout(spawnObstacle, Math.max(800, spawnDelay - (score/2)));
 }
 // FLAPPY MODE
 function startFlappyLogic() {
@@ -325,6 +331,7 @@ function doJump() {
 // --- 5. FINISHING ---
 function gameOver(msg) {
     gameActive = false;
+    updateHighScore(); 
     alert("GAME OVER: " + msg);
     backToMenu();
 }
@@ -409,20 +416,20 @@ function closeWinPopup() {
 
 //best score
 function updateHighScore() {
-    let currentMode = currentGameMode; 
+    let currentMode = selectedMode || 'coin'; 
     let highScore = localStorage.getItem('highScore_' + currentMode) || 0;
-
-    if (score > highScore) {
+    if (score > parseInt(highScore)) {
         localStorage.setItem('highScore_' + currentMode, score);
-        alert("🔥 REKOR BARU! Skor " + score + " tersimpan!");
+        alert("🔥 REKOR BARU! Skor " + score + " tersimpan di mode " + currentMode + "!");
     }
     showBestScore();
 }
 
 function showBestScore() {
-    let currentMode = currentGameMode || 'coin';
+    let currentMode = selectedMode || 'coin';
     let highScore = localStorage.getItem('highScore_' + currentMode) || 0;
-    document.getElementById('best-score').innerText = highScore;
+    const display = document.getElementById('best-score');
+    if(display) {
+        display.innerText = highScore;
+    }
 }
-
-window.onload = showBestScore;
