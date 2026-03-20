@@ -449,33 +449,39 @@ function showBestScore() {
 
 //THR
 function unlockTHR() {
-    const thrSection = document.getElementById('section-thr');
     const msg = document.getElementById('unlock-message');
-
-    if (thrSection && thrSection.classList.contains('thr-locked')) {
-        thrSection.classList.remove('thr-locked');
-        thrSection.classList.add('thr-unlocked');
-        
+    if (score >= 100) {
         if (msg) {
             msg.innerHTML = "🔥 MISI BERHASIL! AMBIL THR-MU SEKARANG! 🔥";
             msg.style.color = "#00ff88"; 
         }
-        thrSection.scrollIntoView({ behavior: 'smooth' });
+        const thrSection = document.getElementById('section-thr');
+        if(thrSection) thrSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
-
 function openSingleThr() {
     const env = document.getElementById('main-envelope');
-    const section = document.getElementById('section-thr');
-    
-    if (section && section.classList.contains('thr-unlocked')) {
-        if (!env.classList.contains('open')) {
-            env.classList.add('open');
-            env.classList.add('shake-effect');
-            setTimeout(() => env.classList.remove('shake-effect'), 500);
+    const lockedContent = document.getElementById('thr-locked-content');
+    const unlockedContent = document.getElementById('thr-unlocked-content');
+
+    if (!env || !lockedContent || !unlockedContent) return;
+
+    if (!env.classList.contains('open')) {
+        env.classList.add('open');
+        env.classList.add('shake-effect');
+        setTimeout(() => env.classList.remove('shake-effect'), 500);
+        
+        if (score >= 100) {
+            lockedContent.style.display = 'none';
+            unlockedContent.style.display = 'flex';
+            unlockedContent.style.flexDirection = 'column';
+            unlockedContent.style.alignItems = 'center';
+        } else {
+            lockedContent.style.display = 'flex';
+            lockedContent.style.flexDirection = 'column';
+            lockedContent.style.alignItems = 'center';
+            unlockedContent.style.display = 'none';
         }
-    } else {
-        alert("Eits! Kumpulin 100 skor dulu baru bisa ambil dana kaget! 🔥");
     }
 }
 
