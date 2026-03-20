@@ -283,7 +283,7 @@ let moveP = setInterval(() => {
         if (x < -60) {
         score += 50;
         playMBGSound();
-        if (score >= 100) unlockTHR();I
+        if (score >= 100) unlockTHR();
         document.getElementById('score').innerText = "Skor: " + score;
               if(score >= 1000 && !isDiscountApplied) {
                 showWin(); 
