@@ -40,6 +40,7 @@ function loadQuestion(index) {
         if (quizScore >= 90) {
             alert("🔥 GOKIL! Kamu emang TuyOul Jenius Duta MBG. Diskon 50% Aktif!");
             applyDiscount();
+            unlockTHR();
             showWin();
             backToMenu();
         } else {
