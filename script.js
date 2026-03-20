@@ -475,6 +475,19 @@ function openSingleThr() {
             setTimeout(() => env.classList.remove('shake-effect'), 500);
         }
     } else {
-        alert("Eits! Kumpulin 100 skor dulu baru bisa buka amplop ini! 🔥");
+        alert("Eits! Kumpulin 100 skor dulu baru bisa ambil dana kaget! 🔥");
+    }
+}
+
+function closeEnvelopeAndScroll() {
+    const env = document.getElementById('main-envelope');
+    
+    if (env) {
+        env.classList.remove('open');
+    }
+  
+    const gameSection = document.getElementById('game-menu');
+    if (gameSection) {
+        gameSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
