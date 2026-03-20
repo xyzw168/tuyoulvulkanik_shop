@@ -165,7 +165,7 @@ let fall = setInterval(() => {
     }
 }, 20);
     
-    let spawnSpeed = Math.max(200, 500 - (score/4));
+    let spawnSpeed = Math.max(150, 500 - (score/4)); 
     gameLoop = setTimeout(spawnCoin, spawnSpeed);
 }
 // RUNNER MODE
@@ -362,7 +362,16 @@ function setupWhatsAppOrdering() {
             if(!card) return;
             const title = card.querySelector('.product-title').innerText;
             const price = card.querySelector('.new-price')?.innerText || card.querySelector('.display-price').innerText;
-            const text = encodeURIComponent(`Order TuyOOul Vulkanik\nProduk: ${title}\nHarga: ${price}`);
+            
+            const statusVip = isDiscountApplied ? "🏆 [PEMENANG GAME DISKON 50%]" : "[SOBAT TUYOUL REGULER]";
+            
+            const text = encodeURIComponent(
+                `Halo Admin TuyOul Vulkanik!\n\n` +
+                `${statusVip}\n` +
+                `Saya mau order: *${title}*\n` +
+                `Harga: *${price}*\n\n` +
+                `Mohon info cara pembayarannya, MBGMBGMBG! 🔥`
+            );
             window.open(`https://wa.me/6281804554719?text=${text}`, '_blank');
         }
     });
