@@ -146,9 +146,10 @@ let fall = setInterval(() => {
             score = Math.max(0, score - 100); 
             board.classList.add('shake-effect');
             setTimeout(() => board.classList.remove('shake-effect'), 200);
-        } else { 
+           } else { 
             score += 20; 
             playMBGSound();
+            if (score >= 100) unlockTHR();
         }
                 document.getElementById('score').innerText = "Skor: " + score;
                 if(score >= 1000 && !isDiscountApplied) {
@@ -205,9 +206,10 @@ function spawnObstacle() {
             return;
         } 
         else if (pos < -50) {
-            score += 25;
-            playMBGSound();
-            document.getElementById('score').innerText = "Skor: " + score;
+        score += 25;
+        playMBGSound();
+        if (score >= 100) unlockTHR(); 
+        document.getElementById('score').innerText = "Skor: " + score;
             
             if(score >= 1000 && !isDiscountApplied) {
                 showWin(); 
@@ -279,9 +281,10 @@ let moveP = setInterval(() => {
             return;
         }
         if (x < -60) {
-            score += 50;
-            playMBGSound();
-            document.getElementById('score').innerText = "Skor: " + score;
+        score += 50;
+        playMBGSound();
+        if (score >= 100) unlockTHR();I
+        document.getElementById('score').innerText = "Skor: " + score;
               if(score >= 1000 && !isDiscountApplied) {
                 showWin(); 
             }
@@ -440,5 +443,37 @@ function showBestScore() {
     const display = document.getElementById('best-score');
     if(display) {
         display.innerText = highScore;
+    }
+}
+
+//THR
+function unlockTHR() {
+    const thrSection = document.getElementById('section-thr');
+    const msg = document.getElementById('unlock-message');
+
+    if (thrSection && thrSection.classList.contains('thr-locked')) {
+        thrSection.classList.remove('thr-locked');
+        thrSection.classList.add('thr-unlocked');
+        
+        if (msg) {
+            msg.innerHTML = "🔥 MISI BERHASIL! AMBIL THR-MU SEKARANG! 🔥";
+            msg.style.color = "#00ff88"; 
+        }
+        thrSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function openSingleThr() {
+    const env = document.getElementById('main-envelope');
+    const section = document.getElementById('section-thr');
+    
+    if (section && section.classList.contains('thr-unlocked')) {
+        if (!env.classList.contains('open')) {
+            env.classList.add('open');
+            env.classList.add('shake-effect');
+            setTimeout(() => env.classList.remove('shake-effect'), 500);
+        }
+    } else {
+        alert("Eits! Kumpulin 100 skor dulu baru bisa buka amplop ini! 🔥");
     }
 }
