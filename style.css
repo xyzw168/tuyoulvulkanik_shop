@@ -482,3 +482,22 @@ footer p {
     .envelope-top { border-left-width: 125px; border-right-width: 125px; border-top-width: 80px; }
     .thr-value { font-size: 1.8rem; }
 }
+.btn-play-now {
+    background: var(--color-lava-red);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.75rem;
+    display: inline-block;
+    transition: 0.3s;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-play-now:hover {
+    background: #ff7043;
+    transform: scale(1.05);
+    color: white;
+}
