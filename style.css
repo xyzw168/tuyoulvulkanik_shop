@@ -68,6 +68,7 @@ h2 {
     overflow: hidden; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     position: relative;
+    min-height: 200px; 
 }
 
 .product-card:hover { 
@@ -75,6 +76,7 @@ h2 {
     border-color: var(--color-lava-red); 
     box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4); 
 }
+
 .product-card::before {
     content: '';
     position: absolute;
@@ -96,6 +98,7 @@ h2 {
 .product-card:hover img { 
     filter: grayscale(0%) brightness(1.1); 
     transform: scale(1.1); 
+} 
 
 .card-body { 
     padding: 25px; 
@@ -120,8 +123,8 @@ h2 {
 }
 
 .price { 
-    font-size: 1.6rem; 
-    font-weight: 900; 
+    font-size: 1.4rem; 
+    font-weight: 800; 
     color: var(--color-gold); 
     margin: 10px 0;
     text-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
@@ -129,12 +132,11 @@ h2 {
 
 .new-price {
     color: #00ff88;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 900;
     margin-left: 10px;
     text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
 }
-
 /* --- ARCADE SYSTEM --- */
 .game-menu { text-align: center; padding: 50px; background: rgba(255, 87, 34, 0.1); border: 2px dashed var(--color-lava-red); border-radius: 20px; }
 .menu-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 25px auto 0; }
