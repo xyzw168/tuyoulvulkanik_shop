@@ -68,19 +68,25 @@
     </div>
 </section>
 
-<section class="thr-section thr-locked" id="section-thr">
+<section class="thr-section" id="section-thr">
     <div class="container">
-        <h2 style="display: block; text-align: center;">Ambil <span class="highlight-text">THR Magma</span> Kamu!</h2>
-        
-        <p id="unlock-message">🔒 Kumpulkan 100 Skor di Game untuk Membuka!</p>
+        <h2 style="display: block; text-align: center;">Ambil <span class="highlight-text">THR DANA KAGET</span> kamu!</h2>
         
         <div class="thr-single-container">
             <div class="envelope" id="main-envelope" onclick="openSingleThr()">
                 <div class="envelope-top"></div>
-                <div class="envelope-body">🧧</div>
+                <div class="envelope-body-icon">🧧</div>
+                
                 <div class="thr-content-inner">
-                    <span class="thr-value">secret</span>
-                    <a href="https://wa.me/628xxxxxxxx?text=Halo%20Tuyul!%20Saya%20berhasil%20dapat%20skor%20100%2C%20mau%20klaim%20THR!" class="btn-claim">KLAIM SEKARANG</a>
+                    <div id="thr-locked-content">
+                        <p style="color: #000; font-weight: bold; margin-bottom: 5px;">BELUM CUKUP!</p>
+                        <small style="color: #333;">Main game dulu sampe skor 100 ya! Nanti bisa klaim dana kaget!</small>
+                    </div>
+
+                    <div id="thr-unlocked-content" style="display: none;">
+                        <span class="thr-value">secret</span>
+                        <a href="https://wa.me/6281804554719?text=Halo%20Admin!%20Skor%20saya%20sudah%20100%2C%20mau%20klaim%20THR!" class="btn-claim">KLAIM SEKARANG</a>
+                    </div>
                 </div>
             </div>
         </div>
