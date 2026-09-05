@@ -1,4 +1,4 @@
-/* --- WARNA & FONT --- */
+
 :root {
     --color-ash-black: #121212; 
     --color-dark-grey: #1a1a1a; 
@@ -63,7 +63,7 @@ h2 {
     overflow: hidden; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     position: relative;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .product-card:hover { 
@@ -84,14 +84,14 @@ h2 {
 .product-card:hover::before { opacity: 1; }
 
 .product-card img { 
-    width: 160px;     
-    height: 160px;   
-    min-width: 160px; 
-    object-fit: cover; 
+    width: 160px;       
+    height: 160px;      
+    min-width: 160px;   
+    object-fit: cover;  
     transition: 0.5s;
     filter: grayscale(20%); 
     border-radius: 10px; 
-    margin: 20px;  
+    margin: 20px;       
 }
 .product-card:hover img { 
     filter: grayscale(0%) brightness(1.1); 
@@ -135,7 +135,7 @@ h2 {
     margin-left: 10px;
     text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
 }
-/* --- ARCADE SYSTEM --- */
+/* sistem game */
 .game-menu { text-align: center; padding: 50px; background: rgba(255, 87, 34, 0.1); border: 2px dashed var(--color-lava-red); border-radius: 20px; }
 .menu-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 25px auto 0; }
 
@@ -162,7 +162,7 @@ h2 {
 .shake-effect { animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both; }
 @keyframes shake { 10%, 90% { transform: translate3d(-1px, 0, 0); } 20%, 80% { transform: translate3d(2px, 0, 0); } }
 
-/* --- QUIZ & POPUP --- */
+/* quiz */
 #quiz-window { display: none; margin: 20px auto; max-width: 800px; }
 #quiz-container { background: var(--color-ash-black); padding: 30px; border-radius: 20px; border: 3px solid var(--color-lava-red); }
 #quiz-options { display: flex; flex-direction: column; gap: 12px; }
@@ -172,7 +172,7 @@ h2 {
 .about-content { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,87,34,0.2); max-width: 850px; margin: 0 auto; text-align: center; }
 .floating-wa { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; z-index: 9999; }
 
-/* --- RESPONSIVE --- */
+/* rsponsive */
 @media (max-width: 900px) {
     .main-nav { flex-direction: column; gap: 15px; }
     .main-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
@@ -195,7 +195,7 @@ h2 {
     .floating-wa { padding: 15px; border-radius: 50%; }
 }
 
-/* --- UCAPAN IDUL FITRI --- */
+/* IDUL FITRI */
 .eid-greeting-section {
     background-color: var(--color-ash-black);
     padding: 100px 0;
