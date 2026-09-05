@@ -11,8 +11,7 @@
     --font-code: 'Roboto Mono', monospace;
 }
 
-/* --- RESET & GLOBAL --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+ { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: var(--font-body);
     background-color: var(--color-dark-grey); 
@@ -22,7 +21,6 @@ body {
 }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px 0; }
 
-/* --- TYPOGRAPHY --- */
 h2 {
     font-size: 2.5rem; text-align: center; margin-bottom: 50px;
     color: var(--color-lava-light); padding-bottom: 10px;
@@ -30,7 +28,6 @@ h2 {
     display: inline-block; letter-spacing: 2px;
 }
 
-/* --- NAVIGASI --- */
 .main-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0 40px; }
 .logo { font-size: 1.5rem; font-weight: 900; }
 .logo span { color: var(--color-lava-red); }
@@ -39,7 +36,6 @@ h2 {
 .main-nav ul li a { color: var(--color-smoke-white); text-decoration: none; font-weight: 600; transition: 0.3s; }
 .main-nav ul li a:hover { color: var(--color-lava-red); }
 
-/* --- HERO SECTION --- */
 .hero { background-color: var(--color-ash-black); padding-bottom: 80px; }
 .hero-content-split { display: flex; align-items: center; justify-content: space-between; padding: 80px 0; }
 .left-content { flex: 1; max-width: 55%; }
@@ -56,7 +52,6 @@ h2 {
 .btn-shopee { background: #ee4d2d; color: white; margin-left: 10px; }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4); }
 
-/* --- PRODUCT GRID --- */
 .products { padding: 80px 0; }
 .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 
@@ -89,12 +84,12 @@ h2 {
 .product-card:hover::before { opacity: 1; }
 
 .product-card img { 
-    width: 40%; 
-    object-fit: cover; 
+    width: 100%;      
+    height: 220px;    
+    object-fit: cover;
     transition: 0.5s;
     filter: grayscale(20%); 
 }
-
 .product-card:hover img { 
     filter: grayscale(0%) brightness(1.1); 
     transform: scale(1.1); 
@@ -154,13 +149,11 @@ h2 {
 @keyframes tuyoulJump { 0% { bottom: 10px; } 50% { bottom: 120px; } 100% { bottom: 10px; } }
 .jump-animation { animation: tuyoulJump 0.5s ease-out; }
 
-/* Game Objects */
 .pipe { position: absolute; width: 60px; background: linear-gradient(90deg, #bf360c, #ff5722, #bf360c); border: 2px solid #ffcc00; z-index: 5; }
 .coin { position: absolute; font-size: 30px; animation: spin 0.6s infinite linear; }
 .obstacle { position: absolute; bottom: 15px; font-size: 35px; }
 @keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
-/* UI Game */
 #score { position: absolute; top: 15px; left: 20px; font-family: var(--font-code); font-size: 1.5rem; color: var(--color-gold); background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 10px; z-index: 20; }
 #virtual-jump-btn { width: 80px; height: 80px; border-radius: 50%; background: #ffc107; border: 4px solid #fff; font-weight: bold; cursor: pointer; }
 .shake-effect { animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both; }
@@ -172,12 +165,11 @@ h2 {
 #quiz-options { display: flex; flex-direction: column; gap: 12px; }
 .popup-style { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background: var(--color-lava-red); padding:40px; border-radius:20px; border: 5px solid gold; z-index: 100; text-align: center; }
 
-/* --- ABOUT & WA --- */
 .about { padding: 100px 0; background: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?q=80&w=1500'); background-attachment: fixed; background-size: cover; }
 .about-content { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,87,34,0.2); max-width: 850px; margin: 0 auto; text-align: center; }
 .floating-wa { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; z-index: 9999; }
 
-/* --- RESPONSIVE HP --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
     .main-nav { flex-direction: column; gap: 15px; }
     .main-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
@@ -200,7 +192,7 @@ h2 {
     .floating-wa { padding: 15px; border-radius: 50%; }
 }
 
-/* --- SECTION UCAPAN IDUL FITRI --- */
+/* --- UCAPAN IDUL FITRI --- */
 .eid-greeting-section {
     background-color: var(--color-ash-black);
     padding: 100px 0;
