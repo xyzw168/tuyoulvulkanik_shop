@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupGameControls();
 });
 
-// --- 1. DATA KUIS ---
+// soal quiz
 const quizData = [
     { q: "Semua TuyOul suka abu vulkanik. Sebagian penghuni kawah bukan TuyOul. Kesimpulannya?", a: ["Semua penghuni kawah suka abu", "Sebagian penghuni kawah suka abu", "Ada penghuni kawah yang bukan TuyOul"], correct: 2 },
     { q: "Jika stok TuyOul melimpah, maka harga diskon. Saat ini harga tidak diskon. Maka...", a: ["Stok TuyOul tidak melimpah", "Stok TuyOul sangat banyak", "Pembeli tidak mau beli"], correct: 0 },
@@ -74,7 +74,7 @@ function loadQuestion(index) {
     });
 }
 
-// --- 2. NAVIGASI & START ---
+// navigasi
 function selectGame(mode) {
     selectedMode = mode;
     gameActive = false;
@@ -121,9 +121,7 @@ function backToMenu() {
     document.getElementById('game-menu').style.display = 'block';
 }
 
-// --- 3. GAME LOGIC ---
-
-// COIN MODE
+// game coin
 function spawnCoin() {
     if (!gameActive || selectedMode !== 'coin') return;
     const board = document.getElementById('game-board');
@@ -170,7 +168,7 @@ let fall = setInterval(() => {
     let spawnSpeed = Math.max(150, 500 - (score/4)); 
     gameLoop = setTimeout(spawnCoin, spawnSpeed);
 }
-// RUNNER MODE
+// game runner
 function spawnObstacle() {
     if (!gameActive || selectedMode !== 'runner') return;
     const board = document.getElementById('game-board');
@@ -181,7 +179,6 @@ function spawnObstacle() {
 
     let pos = board.offsetWidth;
     const player = document.getElementById('player'); 
-    // layar < 900px (HP)
     let baseSpeed = (window.innerWidth < 900) ? 3.5 : 6;
 
     let move = setInterval(() => {
@@ -224,7 +221,7 @@ function spawnObstacle() {
     let spawnDelay = (window.innerWidth < 900) ? 2000 : 1500;
     gameLoop = setTimeout(spawnObstacle, Math.max(800, spawnDelay - (score/2)));
 }
-// FLAPPY MODE
+// game flappy
 function startFlappyLogic() {
     const player = document.getElementById('player');
     flappyVelocity = 0; 
@@ -298,7 +295,7 @@ let moveP = setInterval(() => {
     gameLoop = setTimeout(spawnPipe, 2500);
 }
 
-// --- 4. KONTROL & JUMP (GABUNGAN) ---
+// kontrol game
 function setupGameControls() {
     const board = document.getElementById('game-board');
     const moveH = (e) => {
@@ -332,7 +329,6 @@ function doJump() {
     }
 }
 
-// --- 5. FINISHING ---
 function gameOver(msg) {
     gameActive = false;
     updateHighScore(); 
